@@ -28,10 +28,9 @@ class Blenda(element.Base):
 
     def dlugosc_tyl(self) -> int:
         ilosc = floor(self.ilosc_pt())
-        if int(ilosc) is 1:
-            if int(self.box) is 1:
-                wynik = self.szerokosc_garazu / ilosc + self.NAKLADKA_NA_TYL
-                wynik = self.mround(wynik, 40)
+        if int(ilosc) == 1 and int(self.box) == 1:
+            wynik = self.szerokosc_garazu / ilosc + self.NAKLADKA_NA_TYL
+            wynik = self.mround(wynik, 40)
         else:
             wynik = self.szerokosc_garazu / ilosc + self.NAKLADKA
             wynik = self.mround(wynik)
