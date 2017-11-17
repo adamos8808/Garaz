@@ -7,6 +7,7 @@ class Blenda(element.Base):
     NAKLADKA = 50
     NAKLADKA_NA_BOK = 150
     NAKLADKA_NA_TYL = 40
+    NAKLADKA_POJEDYNCZA_BLENDA_BOK = 200
 
     def dlugosc_przod(self):
         ilosc = floor(self.ilosc_pt())
@@ -17,10 +18,15 @@ class Blenda(element.Base):
         sn = self.szerokosc_garazu + self.NAKLADKA
         return ceil(sn / self.MAX_DL_BLENDY)
 
-    def dlugosc_boku(self):
+    def dlugosc_boku(self) -> int:
         ilosc = floor(self.ilosc_boku())
-        wynik = self.dlugosc_garazu / ilosc + self.NAKLADKA_NA_BOK
-        return self.mround(wynik)
+        if int(ilosc) == 1 and int(self.box) == 1:
+            wynik = self.dlugosc_garazu / ilosc + self.NAKLADKA_POJEDYNCZA_BLENDA_BOK
+        else:
+            ilosc = floor(self.ilosc_boku())
+            wynik = self.dlugosc_garazu / ilosc + self.NAKLADKA_NA_BOK
+            wynik = self.mround(wynik)
+        return wynik
 
     def ilosc_boku(self):
         dn = self.dlugosc_garazu + self.NAKLADKA_NA_BOK
@@ -28,7 +34,7 @@ class Blenda(element.Base):
 
     def dlugosc_tyl(self) -> int:
         ilosc = floor(self.ilosc_pt())
-        if int(ilosc) == 1 and int(self.box) == 1:
+        if ilosc == 1 and self.box == 1:
             wynik = self.szerokosc_garazu / ilosc + self.NAKLADKA_NA_TYL
             wynik = self.mround(wynik, 40)
         else:

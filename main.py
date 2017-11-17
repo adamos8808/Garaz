@@ -1,8 +1,8 @@
 from src.elementy import Blenda
 
 garaz = {
-    'box': 1,
-    'szerokosc_garazu': 3000,
+    'box': 3,
+    'szerokosc_garazu': 4000,
     'dlugosc_garazu': 4000,
     }
 
