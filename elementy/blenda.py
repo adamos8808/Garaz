@@ -42,7 +42,7 @@ class Blenda(element.Base):
             wynik = self.mround(wynik)
         return wynik
 
-    def wypisz_blendy(self) -> str:
+    def wypisz_blendy(self):
         sep = " "
         br = "\n"
         print("Blendy przód: {0}{1}{2}{3}Blendy boki: {4}{5}{6}{7}Blendy tył: {8}{9}".format(str(self.ilosc_pt() * self.box), sep,

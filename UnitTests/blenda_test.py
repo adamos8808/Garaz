@@ -13,7 +13,7 @@ class BlendaTest(unittest.TestCase):
 
     # def test_dlugosc_tylu_wiele_boxow(self):
     #     blenda = Blenda(box=3, szerokosc_garazu=4000)
-    #     self.assertEquals(blenda.dlugosc_tyl(), )
+    #     self.assertEquals(blenda.dlugosc_tyl(),
 
 
 def main():
